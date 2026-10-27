@@ -17,9 +17,7 @@ export default function Sidebar({ role, links, onNavigate }) {
       {/* Logo */}
       <div className="px-5 pt-7 pb-5">
         <div className="flex items-center gap-2.5 mb-1">
-          <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center font-black text-sm flex-shrink-0 text-[#1e3a5f]">
-            S
-          </div>
+          <img src="/favicon.svg" alt="SmartFuel" className="w-9 h-9 rounded-lg flex-shrink-0" />
           <span style={{ color: "#ffffff" }} className="font-bold text-base tracking-tight">SmartFuel</span>
         </div>
         <div className="text-[11px] pl-11 tracking-wide uppercase" style={{ color: "#93c5fd" }}>{role}</div>

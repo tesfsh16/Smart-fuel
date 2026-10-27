@@ -59,12 +59,7 @@ export default function Register() {
       >
         <div>
           <div className="flex items-center gap-2.5 mb-12">
-            <div
-              className="w-9 h-9 rounded-lg bg-white flex items-center justify-center text-sm font-black"
-              style={{ color: "#1e3a5f" }}
-            >
-              S
-            </div>
+            <img src="/favicon.svg" alt="SmartFuel" className="w-9 h-9 rounded-lg" />
             <span className="font-extrabold text-lg">SmartFuel Ethiopia</span>
           </div>
           <h1 className="text-3xl font-extrabold leading-tight mb-4 tracking-tight">
@@ -86,12 +81,7 @@ export default function Register() {
 
           {/* Mobile logo */}
           <div className="flex items-center gap-2.5 mb-8 md:hidden">
-            <div
-              className="w-9 h-9 rounded-lg flex items-center justify-center text-sm font-black text-white"
-              style={{ background: "#1e3a5f" }}
-            >
-              S
-            </div>
+            <img src="/favicon.svg" alt="SmartFuel" className="w-9 h-9 rounded-lg" />
             <span className="font-extrabold text-lg text-slate-900">SmartFuel</span>
           </div>
 

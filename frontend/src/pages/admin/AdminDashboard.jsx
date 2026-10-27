@@ -482,7 +482,7 @@ export default function AdminDashboard() {
       {/* Top bar */}
       <div className="bg-[#1e3a5f] px-8 h-16 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-sm font-black text-[#1e3a5f]">S</div>
+          <img src="/favicon.svg" alt="SmartFuel" className="w-8 h-8 rounded-lg" />
           <span className="text-white font-bold text-base">SmartFuel Ethiopia</span>
           <span className="text-blue-300 text-xs ml-2 uppercase tracking-wide">Admin Console</span>
         </div>

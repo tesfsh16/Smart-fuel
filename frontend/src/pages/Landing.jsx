@@ -60,7 +60,7 @@ export default function Landing() {
       {/* ── Nav ── */}
       <header className="bg-[#1e3a5f] px-8 md:px-16 h-16 flex items-center justify-between flex-shrink-0">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-sm font-black text-[#1e3a5f]">S</div>
+          <img src="/favicon.svg" alt="SmartFuel" className="w-8 h-8 rounded-lg" />
           <span className="text-white font-extrabold text-base tracking-tight">SmartFuel Ethiopia</span>
         </div>
         <div className="flex items-center gap-3">

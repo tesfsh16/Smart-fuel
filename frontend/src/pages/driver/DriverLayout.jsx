@@ -22,12 +22,7 @@ export default function DriverLayout() {
     <div className="min-h-screen bg-white flex flex-col">
       {/* Header */}
       <div className="bg-blue-900 px-5 py-4 flex items-center gap-3">
-        <div
-          className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-sm font-black"
-          style={{ color: "#1e3a5f" }}
-        >
-          S
-        </div>
+        <img src="/favicon.svg" alt="SmartFuel" className="w-8 h-8 rounded-lg flex-shrink-0" />
         <div>
           <div className="text-white font-bold text-[15px]">SmartFuel</div>
           <div className="text-blue-300 text-[11px]">Driver</div>
