@@ -1,6 +1,7 @@
 import TopBar from "../../components/TopBar";
 import { useApi } from "../../hooks/useApi";
 import { getOverview, getStations } from "../../api/government";
+import { riskLabel } from "../../utils/riskLabel.js";
 
 const RISK = {
   LOW:      { badge: "bg-green-50 text-green-700 border-green-200",   dot: "bg-green-500"  },
@@ -24,7 +25,7 @@ function RiskBadge({ level }) {
   return (
     <span className={`inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-0.5 rounded-full border ${s.badge}`}>
       <span className={`w-1.5 h-1.5 rounded-full ${s.dot}`} />
-      {level}
+      {riskLabel(level)}
     </span>
   );
 }
@@ -119,7 +120,7 @@ export default function NationalOverview() {
                           <span className="text-xs font-mono">
                             {p.quantity.toLocaleString()} L{" "}
                             <span className={`ml-1 text-[10px] font-bold ${p.riskLevel === "CRITICAL" ? "text-red-600" : p.riskLevel === "HIGH" ? "text-amber-600" : "text-green-600"}`}>
-                              {p.riskLevel}
+                              {riskLabel(p.riskLevel)}
                             </span>
                           </span>
                         ) : "—"}
@@ -129,7 +130,7 @@ export default function NationalOverview() {
                           <span className="text-xs font-mono">
                             {d.quantity.toLocaleString()} L{" "}
                             <span className={`ml-1 text-[10px] font-bold ${d.riskLevel === "CRITICAL" ? "text-red-600" : d.riskLevel === "HIGH" ? "text-amber-600" : "text-green-600"}`}>
-                              {d.riskLevel}
+                              {riskLabel(d.riskLevel)}
                             </span>
                           </span>
                         ) : "—"}

@@ -1,6 +1,7 @@
 import TopBar from "../../components/TopBar";
 import { useApi } from "../../hooks/useApi";
 import { getInventory, getMovements } from "../../api/station";
+import { riskLabel } from "../../utils/riskLabel.js";
 
 const RISK_STYLES = {
   LOW:      { bar: "bg-green-500",  text: "text-green-600"  },
@@ -56,7 +57,7 @@ export default function StationInventory() {
                 <div key={item.id} className="bg-white rounded-xl border border-slate-200 p-5">
                   <div className="flex items-center justify-between mb-3">
                     <p className="font-semibold text-slate-800 text-base">{item.fuelName}</p>
-                    <span className={`text-xs font-semibold ${s.text}`}>{item.riskLevel}</span>
+                    <span className={`text-xs font-semibold ${s.text}`}>{riskLabel(item.riskLevel)}</span>
                   </div>
 
                   <p className="text-3xl font-bold text-slate-900 mb-1">

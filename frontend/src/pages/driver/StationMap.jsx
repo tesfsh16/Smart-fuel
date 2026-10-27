@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useApi } from "../../hooks/useApi";
 import { findStations } from "../../api/driver";
 import L from "leaflet";
+import { riskLabel } from "../../utils/riskLabel.js";
 
 // Fix Leaflet's default icon paths in Vite
 delete L.Icon.Default.prototype._getIconUrl;
@@ -31,7 +32,7 @@ function buildPopup(station) {
     const c = f.riskLevel === "LOW" ? "#16a34a" : f.riskLevel === "HIGH" ? "#ca8a04" : "#dc2626";
     return `<div style="margin-top:5px;display:flex;justify-content:space-between;align-items:center;gap:12px">
       <span style="font-weight:600">${f.fuelName}</span>
-      <span>${f.quantity.toLocaleString()} L <span style="color:${c};font-weight:700">[${f.riskLevel}]</span></span>
+      <span>${f.quantity.toLocaleString()} L <span style="color:${c};font-weight:700">[${riskLabel(f.riskLevel)}]</span></span>
     </div>`;
   }).join("");
 

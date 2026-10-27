@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext.jsx";
 import { useApi } from "../../hooks/useApi";
 import { findStations } from "../../api/driver";
+import { riskLabel } from "../../utils/riskLabel.js";
 
 const FILTERS = ["All", "PETROL", "DIESEL"];
 
@@ -96,7 +97,7 @@ export default function FindFuel() {
                 <p className="text-xs text-slate-400 mt-0.5">{station.address}</p>
               </div>
               <span className={`text-[11px] font-semibold flex-shrink-0 ${r.text}`}>
-                {station.riskLevel}
+                {riskLabel(station.riskLevel)}
               </span>
             </div>
 
@@ -108,7 +109,7 @@ export default function FindFuel() {
                   <div key={f.fuelCode} className="bg-slate-50 rounded-lg p-2.5">
                     <div className="flex items-center justify-between mb-1.5">
                       <p className="text-xs font-semibold text-slate-700">{f.fuelName}</p>
-                      <span className={`text-[10px] font-semibold ${(RISK[f.riskLevel]||RISK.LOW).text}`}>{f.riskLevel}</span>
+                      <span className={`text-[10px] font-semibold ${(RISK[f.riskLevel]||RISK.LOW).text}`}>{riskLabel(f.riskLevel)}</span>
                     </div>
                     <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden">
                       <div className={`h-full ${fr.bar} rounded-full`} style={{ width: `${f.percentFull}%` }} />

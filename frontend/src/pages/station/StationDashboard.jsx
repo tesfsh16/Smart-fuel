@@ -1,6 +1,7 @@
 import TopBar from "../../components/TopBar";
 import { useApi } from "../../hooks/useApi";
 import { getDashboard } from "../../api/station";
+import { riskLabel } from "../../utils/riskLabel.js";
 
 const RISK_STYLES = {
   LOW:      { bar: "bg-green-500",  text: "text-green-600"  },
@@ -25,7 +26,7 @@ function StockCard({ fuelName, stock }) {
     <div className="bg-white rounded-xl border border-slate-200 p-5">
       <div className="flex items-center justify-between mb-3">
         <p className="font-semibold text-slate-800">{fuelName}</p>
-        <span className={`text-xs font-semibold ${s.text}`}>{stock.riskLevel}</span>
+        <span className={`text-xs font-semibold ${s.text}`}>{riskLabel(stock.riskLevel)}</span>
       </div>
       <p className="text-2xl font-bold text-slate-900 mb-1">
         {stock.quantity.toLocaleString()} L
