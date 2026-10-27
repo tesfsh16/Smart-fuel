@@ -4,8 +4,11 @@ import { ApiError } from "../../middleware/error.js";
 // ── helpers ────────────────────────────────────────────────────────────────
 
 function riskLevel(qty, low, critical) {
-  if (qty <= critical) return "CRITICAL";
-  if (qty <= low)      return "HIGH";
+  const q = parseFloat(qty);
+  const l = parseFloat(low);
+  const c = parseFloat(critical);
+  if (q <= c) return "CRITICAL";
+  if (q <= l) return "HIGH";
   return "LOW";
 }
 
