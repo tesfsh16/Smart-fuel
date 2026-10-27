@@ -78,6 +78,8 @@ export default function FindFuel() {
         <div className="text-center text-slate-400 text-sm py-16">No stations found.</div>
       )}
 
+      {/* Responsive grid: 1 column on mobile, 2 on md+ */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
       {!loading && !error && stations?.map(station => {
         const r = RISK[station.riskLevel] || RISK.LOW;
         const fuels = Object.values(station.fuels);
@@ -85,7 +87,7 @@ export default function FindFuel() {
         return (
           <div
             key={station.id}
-            className="bg-white rounded-xl border border-slate-200 mb-3 p-4"
+            className="bg-white rounded-xl border border-slate-200 p-4"
           >
             {/* Header */}
             <div className="flex items-start justify-between gap-2 mb-3">
@@ -144,6 +146,7 @@ export default function FindFuel() {
           </div>
         );
       })}
+      </div>
     </div>
   );
 }
