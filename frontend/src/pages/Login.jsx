@@ -2,21 +2,13 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth, homePathForUser } from "../contexts/AuthContext.jsx";
 
-const demoAccounts = [
-  { label: "Driver", email: "driver@demo.com" },
-  { label: "Station Manager", email: "manager@demo.com" },
-  { label: "Authority", email: "authority@demo.com" },
-  { label: "Distributor", email: "distributor@demo.com" },
-  { label: "Platform Admin", email: "admin@demo.com" },
-];
-
 export default function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
-  const [email, setEmail] = useState("");
+  const [email, setEmail]       = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [busy, setBusy] = useState(false);
+  const [error, setError]       = useState("");
+  const [busy, setBusy]         = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -32,20 +24,13 @@ export default function Login() {
     }
   }
 
-  function quickFill(demoEmail) {
-    setEmail(demoEmail);
-    setPassword("password123");
-  }
-
   return (
     <div className="min-h-screen grid md:grid-cols-2">
-      {/* Left panel — branding (hidden on small screens) */}
-      <div className="hidden md:flex flex-col justify-between px-12 py-14 text-white bg-blue-900">
+      {/* Left branding panel */}
+      <div className="hidden md:flex flex-col justify-between px-12 py-14 text-white" style={{ background: "#1e3a5f" }}>
         <div>
           <div className="flex items-center gap-2.5 mb-12">
-            <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center text-lg">
-              ⛽
-            </div>
+            <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center text-sm font-black" style={{ color: "#1e3a5f" }}>S</div>
             <span className="font-extrabold text-lg">SmartFuel Ethiopia</span>
           </div>
           <h1 className="text-3xl font-extrabold leading-tight mb-4 tracking-tight">
@@ -56,40 +41,34 @@ export default function Login() {
             stakeholders intelligent visibility into fuel supply and demand.
           </p>
         </div>
-        <div className="text-[11px] text-blue-300 tracking-wide uppercase">
-          SmartFuel Ethiopia
-        </div>
+        <p className="text-[11px] text-blue-300 uppercase tracking-wide">SmartFuel Ethiopia</p>
       </div>
 
-      {/* Right panel — form */}
+      {/* Right form panel */}
       <div className="flex flex-col justify-center px-6 py-12 bg-white md:px-12">
         <div className="w-full max-w-sm mx-auto">
-          {/* Mobile logo (hidden on desktop where the branding panel shows) */}
+          {/* Mobile logo */}
           <div className="flex items-center gap-2.5 mb-8 md:hidden">
-            <div className="w-9 h-9 rounded-lg bg-blue-900 flex items-center justify-center text-lg">
-              ⛽
-            </div>
-            <span className="font-extrabold text-lg text-slate-900">
-              SmartFuel
-            </span>
+            <div className="w-9 h-9 rounded-lg flex items-center justify-center text-sm font-black text-white" style={{ background: "#1e3a5f" }}>S</div>
+            <span className="font-extrabold text-lg text-slate-900">SmartFuel</span>
           </div>
 
           <Link to="/" className="text-xs text-slate-400 hover:text-slate-600 mb-6 inline-block">
             ← Back to home
           </Link>
+
           <h2 className="text-2xl font-bold text-slate-900 mb-1.5">Sign in</h2>
-          <p className="text-slate-500 text-[13px] mb-6">
-            Use a demo account or your own credentials.
-          </p>
+          <p className="text-slate-500 text-[13px] mb-6">Enter your email and password to continue.</p>
+
           <form onSubmit={handleSubmit} className="flex flex-col gap-3.5">
             <label className="text-[13px] font-semibold text-slate-700">
               Email
               <input
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={e => setEmail(e.target.value)}
                 required
-                placeholder="you@demo.com"
+                placeholder="you@example.com"
                 className="w-full mt-1.5 px-3 py-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500"
               />
             </label>
@@ -98,7 +77,7 @@ export default function Login() {
               <input
                 type="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={e => setPassword(e.target.value)}
                 required
                 placeholder="••••••••"
                 className="w-full mt-1.5 px-3 py-2.5 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500"
@@ -114,29 +93,17 @@ export default function Login() {
             <button
               type="submit"
               disabled={busy}
-              className="bg-blue-700 text-white border-none rounded-lg py-2.5 px-4 text-sm font-semibold disabled:opacity-70"
+              className="text-white border-none rounded-lg py-2.5 px-4 text-sm font-semibold disabled:opacity-70"
+              style={{ background: "#1e3a5f" }}
             >
               {busy ? "Signing in…" : "Sign in"}
             </button>
           </form>
 
-          <div className="mt-7">
-            <div className="text-[11px] font-semibold tracking-wide uppercase text-slate-400 mb-2.5">
-              Demo accounts (password: password123)
-            </div>
-            <div className="flex flex-wrap gap-1.5">
-              {demoAccounts.map((a) => (
-                <button
-                  key={a.email}
-                  type="button"
-                  onClick={() => quickFill(a.email)}
-                  className="text-xs border border-slate-200 bg-white rounded-full px-2.5 py-1 text-slate-600 hover:border-blue-300"
-                >
-                  {a.label}
-                </button>
-              ))}
-            </div>
-          </div>
+          <p className="mt-6 text-[13px] text-slate-500 text-center">
+            Don't have an account?{" "}
+            <Link to="/register" className="font-semibold" style={{ color: "#1e3a5f" }}>Register</Link>
+          </p>
         </div>
       </div>
     </div>
