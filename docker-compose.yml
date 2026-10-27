@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: smartfuel-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: smartfuel
+      POSTGRES_PASSWORD: smartfuel
+      POSTGRES_DB: smartfuel
+    ports:
+      - "5432:5432"
+    volumes:
+      - smartfuel_pgdata:/var/lib/postgresql/data
+
+volumes:
+  smartfuel_pgdata:
