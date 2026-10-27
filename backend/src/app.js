@@ -18,10 +18,11 @@ export function createApp() {
   app.use(helmet());
   // CORS — allow the Vercel frontend (set FRONTEND_URL in Render env vars)
   const allowedOrigins = config.isDev
-    ? true  // allow all in dev
+    ? true
     : [
-        process.env.FRONTEND_URL,          // e.g. https://smartfuel.vercel.app
-        /\.vercel\.app$/,                  // any Vercel preview URL
+        process.env.FRONTEND_URL,
+        /\.vercel\.app$/,
+        "https://smart-fuel-chi.vercel.app",
       ].filter(Boolean);
 
   app.use(cors({
