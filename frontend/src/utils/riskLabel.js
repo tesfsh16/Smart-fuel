@@ -1,14 +1,19 @@
 /**
  * Convert a backend risk level (LOW / HIGH / CRITICAL) to a
- * human-readable label that describes the STOCK AMOUNT, not the danger.
+ * human-readable label based on threshold status.
  *
- *   LOW risk     = High Stock  (green  — lots of fuel)
- *   HIGH risk    = Low Stock   (orange — fuel is running low)
- *   CRITICAL risk= Critical    (red    — nearly empty)
+ * Each fuel type is measured against its own thresholds independently:
+ *   LOW risk      → "Normal"           — above the low threshold (e.g. > 3,000 L)
+ *   HIGH risk     → "Below Threshold"  — below the low threshold (e.g. ≤ 3,000 L)
+ *   CRITICAL risk → "Critical"         — below the critical threshold (e.g. ≤ 1,000 L)
+ *
+ * This avoids confusion: Petrol at 7,970 L and Diesel at 10,000 L can
+ * both be "Normal" even though 7,970 < 10,000 — because each is
+ * assessed against its own minimum, not compared to the other.
  */
 export const RISK_LABEL = {
-  LOW:      "High Stock",
-  HIGH:     "Low Stock",
+  LOW:      "Normal",
+  HIGH:     "Below Threshold",
   CRITICAL: "Critical",
 };
 
