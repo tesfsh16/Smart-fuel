@@ -295,7 +295,7 @@ function RegisterTab() {
   const labelCls = "block text-xs font-semibold text-slate-700 mb-3";
 
   return (
-    <div className="max-w-2xl">
+    <div className="max-w-2xl mx-auto">
       {/* Type selector */}
       <div className="flex gap-2 mb-6">
         {ENTITY_TYPES.map(t => (

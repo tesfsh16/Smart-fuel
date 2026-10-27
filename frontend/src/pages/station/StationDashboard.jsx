@@ -42,23 +42,8 @@ function StockCard({ fuelName, stock }) {
 }
 
 function AlertBar({ alerts }) {
-  if (!alerts?.length) return null;
-  return (
-    <div className="space-y-2 mb-6">
-      {alerts.map((a, i) => (
-        <div
-          key={i}
-          className={`px-4 py-3 rounded-lg text-sm font-medium border ${
-            a.type === "critical"
-              ? "bg-red-50 text-red-700 border-red-200"
-              : "bg-amber-50 text-amber-700 border-amber-200"
-          }`}
-        >
-          {a.message}
-        </div>
-      ))}
-    </div>
-  );
+  // Alerts are suppressed from the dashboard header — they show in inventory detail instead
+  return null;
 }
 
 export default function StationDashboard() {

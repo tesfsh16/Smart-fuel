@@ -43,17 +43,17 @@ export default function DriverLayout() {
       </div>
 
       {/* Bottom navigation */}
-      <nav className="fixed bottom-0 left-0 w-full bg-white border-t border-slate-200 grid grid-cols-5 z-30">
+      <nav className="fixed bottom-0 left-0 w-full grid grid-cols-5 z-30" style={{ background: "#1e3a5f" }}>
         {tabs.map(({ to, label, end }) => (
           <NavLink
             key={to}
             to={to}
             end={end}
             className={({ isActive }) =>
-              `flex flex-col items-center py-2.5 text-[10px] font-semibold gap-1 border-t-2 ${
+              `flex flex-col items-center py-2.5 text-[10px] font-semibold gap-1 border-t-2 transition-colors ${
                 isActive
-                  ? "text-blue-700 border-blue-700"
-                  : "text-slate-400 border-transparent"
+                  ? "text-white border-white"
+                  : "text-blue-300 border-transparent"
               }`
             }
           >
