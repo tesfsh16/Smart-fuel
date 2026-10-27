@@ -40,12 +40,12 @@ export default function DriverLayout() {
       {/* Page content */}
       <div className="flex-1 overflow-y-auto pb-20 bg-slate-50">
         <Outlet />
-      </div>
-
-      {/* Bottom navigation */}
-      <nav className="fixed bottom-0 left-0 w-full grid grid-cols-5 z-30" style={{ background: "#ffffff", borderTop: "1px solid #e2e8f0" }}>
-        {tabs.map(({ to, label, end }) => (
-          <NavLink
+          <button
+            onClick={user ? handleLogout : () => navigate("/register")}
+            className="text-blue-300 text-xs hover:text-white"
+          >
+            {user ? "Sign out" : "Sign up"}
+          </button>
             key={to}
             to={to}
             end={end}
