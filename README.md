@@ -1862,3 +1862,5 @@ That is the difference between a **fuel-booking project** and a **startup platfo
 
 **Document status:** Competition-ready foundation.  
 **Next recommended artifacts:** detailed PRD, database ERD, API specification, role/permission matrix, complete user-flow diagrams, UI wireframes and MVP implementation plan.
+
+Generally we used a mern stack to build this project
